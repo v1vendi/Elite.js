@@ -7,57 +7,57 @@ var rnd_seed = {
     d: null
 };
 
-var digrams="ABOUSEITILETSTONLONUTHNOALLEXEGEZACEBISOUSESARMAINDIREA?ERATENBERALAVETIEDORQUANTEISRION";
+var digrams = "ABOUSEITILETSTONLONUTHNOALLEXEGEZACEBISOUSESARMAINDIREA?ERATENBERALAVETIEDORQUANTEISRION";
 
-var inhabitant_desc1= ["Large ", "Fierce ", "Small "];
+var inhabitant_size = ["Large ", "Fierce ", "Small "];
 
-var inhabitant_desc2 = ["Green ", "Red ", "Yellow ", "Blue ", "Black ", "Harmless "];
+var inhabitant_color = ["Green ", "Red ", "Yellow ", "Blue ", "Black ", "Harmless "];
 
 var inhabitant_desc3 = ["Slimy ", "Bug-Eyed ", "Horned ", "Bony ", "Fat ", "Furry "];
 
-var inhabitant_desc4 = ["Rodent", "Frog", "Lizard", "Lobster", "Bird", "Humanoid", "Feline", "Insect"];
+var inhabitant_type = ["Rodent", "Frog", "Lizard", "Lobster", "Bird", "Humanoid", "Feline", "Insect"];
 
 
-var  planet_description;
+var planet_description;
 var desc_ptr;
 
 var desc_list = [
-    /*  0	*/	["fabled", "notable", "well known", "famous", "noted"],
-    /*  1	*/	["very", "mildly", "most", "reasonably", ""],
-    /*  2	*/	["ancient", "<20>", "great", "vast", "pink"],
-    /*  3	*/	["<29> <28> plantations", "mountains", "<27>", "<19> forests", "oceans"],
-    /*  4	*/	["shyness", "silliness", "mating traditions", "loathing of <5>", "love for <5>"],
-    /*  5	*/	["food blenders", "tourists", "poetry", "discos", "<13>"],
-    /*  6	*/	["talking tree", "crab", "bat", "lobst", "%R"],
-    /*  7	*/	["beset", "plagued", "ravaged", "cursed", "scourged"],
-    /*  8	*/	["<21> civil war", "<26> <23> <24>s", "a <26> disease", "<21> earthquakes", "<21> solar activity"],
-    /*  9	*/	["its <2> <3>", "the %I <23> <24>","its inhabitants' <25> <4>", "<32>", "its <12> <13>"],
-    /* 10	*/	["juice", "brandy", "water", "brew", "gargle blasters"],
-    /* 11	*/	["%R", "%I <24>", "%I %R", "%I <26>", "<26> %R"],
-    /* 12	*/	["fabulous", "exotic", "hoopy", "unusual", "exciting"],
-    /* 13	*/	["cuisine", "night life", "casinos", "sit coms", " <32> "],
-    /* 14	*/	["%H", "The planet %H", "The world %H", "This planet", "This world"],
-    /* 15	*/	["n unremarkable", " boring", " dull", " tedious", " revolting"],
-    /* 16	*/	["planet", "world", "place", "little planet", "dump"],
-    /* 17	*/	["wasp", "moth", "grub", "ant", "%R"],
-    /* 18	*/	["poet", "arts graduate", "yak", "snail", "slug"],
-    /* 19	*/	["tropical", "dense", "rain", "impenetrable", "exuberant"],
-    /* 20	*/	["funny", "wierd", "unusual", "strange", "peculiar"],
-    /* 21	*/	["frequent", "occasional", "unpredictable", "dreadful", "deadly"],
-    /* 22	*/	["<1> <0> for <9>", "<1> <0> for <9> and <9>", "<7> by <8>", "<1> <0> for <9> but <7> by <8>"," a<15> <16>"],
-    /* 23	*/	["<26>", "mountain", "edible", "tree", "spotted"],
-    /* 24	*/	["<30>", "<31>", "<6>oid", "<18>", "<17>"],
-    /* 25	*/	["ancient", "exceptional", "eccentric", "ingrained", "<20>"],
-    /* 26	*/	["killer", "deadly", "evil", "lethal", "vicious"],
-    /* 27	*/	["parking meters", "dust clouds", "ice bergs", "rock formations", "volcanoes"],
-    /* 28	*/	["plant", "tulip", "banana", "corn", "%Rweed"],
-    /* 29	*/	["%R", "%I %R", "%I <26>", "inhabitant", "%I %R"],
-    /* 30	*/	["shrew", "beast", "bison", "snake", "wolf"],
-    /* 31	*/	["leopard", "cat", "monkey", "goat", "fish"],
-    /* 32	*/	["<11> <10>", "%I <30> <33>","its <12> <31> <33>", "<34> <35>", "<11> <10>"],
-    /* 33	*/	["meat", "cutlet", "steak", "burgers", "soup"],
-    /* 34	*/	["ice", "mud", "Zero-G", "vacuum", "%I ultra"],
-    /* 35	*/	["hockey", "cricket", "karate", "polo", "tennis"]
+    /*  0	*/["fabled", "notable", "well known", "famous", "noted"],
+    /*  1	*/["very", "mildly", "most", "reasonably", ""],
+    /*  2	*/["ancient", "<20>", "great", "vast", "pink"],
+    /*  3	*/["<29> <28> plantations", "mountains", "<27>", "<19> forests", "oceans"],
+    /*  4	*/["shyness", "silliness", "mating traditions", "loathing of <5>", "love for <5>"],
+    /*  5	*/["food blenders", "tourists", "poetry", "discos", "<13>"],
+    /*  6	*/["talking tree", "crab", "bat", "lobst", "%R"],
+    /*  7	*/["beset", "plagued", "ravaged", "cursed", "scourged"],
+    /*  8	*/["<21> civil war", "<26> <23> <24>s", "a <26> disease", "<21> earthquakes", "<21> solar activity"],
+    /*  9	*/["its <2> <3>", "the %I <23> <24>", "its inhabitants' <25> <4>", "<32>", "its <12> <13>"],
+    /* 10	*/["juice", "brandy", "water", "brew", "gargle blasters"],
+    /* 11	*/["%R", "%I <24>", "%I %R", "%I <26>", "<26> %R"],
+    /* 12	*/["fabulous", "exotic", "hoopy", "unusual", "exciting"],
+    /* 13	*/["cuisine", "night life", "casinos", "sit coms", " <32> "],
+    /* 14	*/["%H", "The planet %H", "The world %H", "This planet", "This world"],
+    /* 15	*/["n unremarkable", " boring", " dull", " tedious", " revolting"],
+    /* 16	*/["planet", "world", "place", "little planet", "dump"],
+    /* 17	*/["wasp", "moth", "grub", "ant", "%R"],
+    /* 18	*/["poet", "arts graduate", "yak", "snail", "slug"],
+    /* 19	*/["tropical", "dense", "rain", "impenetrable", "exuberant"],
+    /* 20	*/["funny", "wierd", "unusual", "strange", "peculiar"],
+    /* 21	*/["frequent", "occasional", "unpredictable", "dreadful", "deadly"],
+    /* 22	*/["<1> <0> for <9>", "<1> <0> for <9> and <9>", "<7> by <8>", "<1> <0> for <9> but <7> by <8>", " a<15> <16>"],
+    /* 23	*/["<26>", "mountain", "edible", "tree", "spotted"],
+    /* 24	*/["<30>", "<31>", "<6>oid", "<18>", "<17>"],
+    /* 25	*/["ancient", "exceptional", "eccentric", "ingrained", "<20>"],
+    /* 26	*/["killer", "deadly", "evil", "lethal", "vicious"],
+    /* 27	*/["parking meters", "dust clouds", "ice bergs", "rock formations", "volcanoes"],
+    /* 28	*/["plant", "tulip", "banana", "corn", "%Rweed"],
+    /* 29	*/["%R", "%I %R", "%I <26>", "inhabitant", "%I %R"],
+    /* 30	*/["shrew", "beast", "bison", "snake", "wolf"],
+    /* 31	*/["leopard", "cat", "monkey", "goat", "fish"],
+    /* 32	*/["<11> <10>", "%I <30> <33>", "its <12> <31> <33>", "<34> <35>", "<11> <10>"],
+    /* 33	*/["meat", "cutlet", "steak", "burgers", "soup"],
+    /* 34	*/["ice", "mud", "Zero-G", "vacuum", "%I ultra"],
+    /* 35	*/["hockey", "cricket", "karate", "polo", "tennis"]
 ];
 
 
@@ -66,9 +66,8 @@ var desc_list = [
  * This is the version used in the 6502 Elites.
  */
 
-function gen_rnd_number ()
-{
-    var a,x;
+function gen_rnd_number() {
+    var a, x;
 
     x = (rnd_seed.a * 2) & 0xFF;
     a = x + rnd_seed.c;
@@ -92,33 +91,30 @@ function gen_rnd_number ()
  */
 
 
-function gen_msx_rnd_number ()
-{
-    var a,b;
+function gen_msx_rnd_number() {
+    var a, b;
 
     a = rnd_seed.a;
     b = rnd_seed.b;
-	
+
     rnd_seed.a = rnd_seed.c;
     rnd_seed.b = rnd_seed.d;
-	
+
     a += rnd_seed.c;
     b = (b + rnd_seed.d) & 255;
-    if (a > 255)
-    {
+    if (a > 255) {
         a &= 255;
         b++;
     }
-	
+
     rnd_seed.c = a;
     rnd_seed.d = b;
-	
+
     return rnd_seed.c / 0x34;
 }
 
 
-function waggle_galaxy (glx_ptr)
-{
+function waggle_galaxy(glx_ptr) {
     var x;
     var y;
     var carry_flag;
@@ -160,8 +156,7 @@ function waggle_galaxy (glx_ptr)
 
 
 
-function find_planet ( cx,  cy)
-{
+function find_planet(cx, cy) {
     var min_dist = 10000;
     var glx;
     var planet;
@@ -171,8 +166,7 @@ function find_planet ( cx,  cy)
 
     glx = cmdr.galaxy;
 
-    for (i = 0; i < 256; i++)
-    {
+    for (i = 0; i < 256; i++) {
 
         dx = abs(cx - glx.d);
         dy = abs(cy - glx.b);
@@ -182,31 +176,28 @@ function find_planet ( cx,  cy)
         else
             distance = (dx + dy + dy) / 2;
 
-        if (distance < min_dist)
-        {
+        if (distance < min_dist) {
             min_dist = distance;
             planet = glx;
         }
 
-        waggle_galaxy (glx);
-        waggle_galaxy (glx);
-        waggle_galaxy (glx);
-        waggle_galaxy (glx);
+        waggle_galaxy(glx);
+        waggle_galaxy(glx);
+        waggle_galaxy(glx);
+        waggle_galaxy(glx);
     }
 
     return planet;
 }
 
 
-function find_planet_number (planet)
-{
-    var galaxy_seed glx;
+function find_planet_number(planet) {
+    var glx;
     var i;
 
     glx = cmdr.galaxy;
 
-    for (i = 0; i < 256; i++)
-    {
+    for (i = 0; i < 256; i++) {
 
         if ((planet.a == glx.a) &&
             (planet.b == glx.b) &&
@@ -215,11 +206,11 @@ function find_planet_number (planet)
             (planet.e == glx.e) &&
             (planet.f == glx.f))
             return i;
-	
-        waggle_galaxy (glx);
-        waggle_galaxy (glx);
-        waggle_galaxy (glx);
-        waggle_galaxy (glx);
+
+        waggle_galaxy(glx);
+        waggle_galaxy(glx);
+        waggle_galaxy(glx);
+        waggle_galaxy(glx);
     }
 
     return -1;
@@ -227,93 +218,70 @@ function find_planet_number (planet)
 
 
 
-function name_planet (gname, glx)
-{
+function name_planet(planetName, glx) {
     var size;
     var i;
     var gp;
     var x;
 
 
-    gp = gname;
-
-    if ((glx.a & 0x40) == 0)
+    if ((glx.a & 64) == 0)
         size = 3;
     else
         size = 4;
 
-    for (i = 0; i < size; i++)
-    {
-        x = glx.f & 0x1F;
-        if (x != 0)
-        {
+    for (i = 0; i < size; i++) {
+        x = glx.f & 31;
+        if (x != 0) {
             x += 12;
             x *= 2;
-            *gp++ = digrams[x];
-            if (digrams[x+1] != '?')
-                *gp++ = digrams[x+1];
+            planetName += digrams[x];
+            if (digrams[x + 1] != '?')
+                planetName += digrams[x + 1];
         }
 
-        waggle_galaxy (&glx);
+        waggle_galaxy(glx);
     }
 
-    *gp = '\0';
 }
 
 
-function capitalise_name (name)
-{
-    var ptr = name;
-
-    if (*ptr == '\0')
-        return;
-
-    *ptr = toupper(*ptr);
-    ptr++;
-
-    while (*ptr != '\0')
-    {
-        *ptr = tolower(*ptr);
-        ptr++;
-    }
+function capitalise_name(name) {
+    name = name.toUpperCase();
 }
 
 
-function describe_inhabitants (str, planet)
-{
-    var  inhab;
+function describe_inhabitants(str, planet) {
+    var inhab;
 
-    strcpy (str, "(");
+    str += "(";
 
-    if (planet.e < 128)
-    {
-        strcat (str, "Human Colonial");
+    if (planet.e < 128) {
+        strcat(str, "Human Colonial");
     }
-    else
-    {
+    else {
         inhab = (planet.f / 4) & 7;
         if (inhab < 3)
-            strcat (str, inhabitant_desc1[inhab]);
+            str += inhabitant_size[inhab];
 
         inhab = planet.f / 32;
         if (inhab < 6)
-            strcat (str, inhabitant_desc2[inhab]);
+            str += inhabitant_color[inhab];
 
         inhab = (planet.d ^ planet.b) & 7;
         if (inhab < 6)
-            strcat (str, inhabitant_desc3[inhab]);
+            str += inhabitant_desc3[inhab];
 
         inhab = (inhab + (planet.f & 3)) & 7;
-        strcat (str, inhabitant_desc4[inhab]);
+        str += inhabitant_type[inhab];
     }
 
-    strcat (str, "s)");
+    str += "s)";
 }
 
 
 
-function expand_description (source)
-{
+function expand_description(source) {
     var str;
     var ptr;
     var num;
@@ -321,24 +289,21 @@ function expand_description (source)
     var option;
     var i, len, x;
 
-    while (*source != '\0')
-    {
-        if (*source == '<')
-        {
-            source++;
-            ptr = str;
-            while (*source != '>')
-                *ptr++ = *source++;
-            *ptr = '\0';
-            source++;
+    for (var j = 0; j < source.length; j++) {
+        var letter = source[i];
+
+        if (letter == '<') {
+            var k = j;
+
+            while (source[k] != '>')
+                ptr += source[k++];
+
             num = atoi(str);
-			
-            if (hoopy_casinos)
-            {
+
+            if (hoopy_casinos) {
                 option = gen_msx_rnd_number();
             }
-            else
-            {
+            else {
                 rnd = gen_rnd_number();
                 option = 0;
                 if (rnd >= 0x33) option++;
@@ -346,96 +311,78 @@ function expand_description (source)
                 if (rnd >= 0x99) option++;
                 if (rnd >= 0xCC) option++;
             }
-			
-            expand_description (desc_list[num][option]);
+
+            expand_description(desc_list[num][option]);
             continue;
         }
 
-        if (*source == '%')
-        {
-            source++;
-            switch (*source)
-            {
+        if (letter == '%') {
+            i++;
+            letter = source[i];
+            switch (letter) {
                 case 'H':
-                    name_planet (str, hyperspace_planet);
-                    capitalise_name (str);
-                    for (ptr = str; *ptr != '\0';)
-                        *desc_ptr++ = *ptr++;
+                    desc_ptr = ptr;
                     break;
 
                 case 'I':
-                    name_planet (str, hyperspace_planet);
-                    capitalise_name (str);
-                    for (ptr = str; *ptr != '\0';)
-                        *desc_ptr++ = *ptr++;
-                    desc_ptr--;
-                    strcpy (desc_ptr, "ian");
-                    desc_ptr += 3;
+                    name_planet(str, hyperspace_planet);
+                    capitalise_name(str);
+                    desc_ptr = ptr;
+                    desc_ptr += "ian";
                     break;
 
                 case 'R':
                     len = gen_rnd_number() & 3;
-                    for (i = 0; i <= len; i++)
-                    {
+                    for (i = 0; i <= len; i++) {
                         x = gen_rnd_number() & 0x3e;
                         if (i == 0)
-                            *desc_ptr++ = digrams[x];
+                            desc_ptr += digrams[x];
                         else
-                            *desc_ptr++ = tolower(digrams[x]);
-                        *desc_ptr++ = tolower(digrams[x+1]);
+                            desc_ptr += tolower(digrams[x]);
+                        desc_ptr += tolower(digrams[x + 1]);
                     }
-
             }
-
-            source++;
-            continue;
         }
-
-        *desc_ptr++ = *source++;
     }
 
 
 
-    *desc_ptr = '\0';
+
 }
 
 
 
-function describe_planet ( planet)
-{
+function describe_planet(planet) {
     var mission_text;
-	
-    if (cmdr.mission == 1)
-    {
-        mission_text = mission_planet_desc (planet);
-        if (mission_text != NULL)
+
+    if (cmdr.mission == 1) {
+        mission_text = mission_planet_desc(planet);
+        if (mission_text != null)
             return mission_text;
     }
-	
+
     rnd_seed.a = planet.c;
     rnd_seed.b = planet.d;
     rnd_seed.c = planet.e;
     rnd_seed.d = planet.f;
 
-    if (hoopy_casinos)
-    {
+    if (hoopy_casinos) {
         rnd_seed.a ^= planet.a;
         rnd_seed.b ^= planet.b;
         rnd_seed.c ^= rnd_seed.a;
         rnd_seed.d ^= rnd_seed.b;
     }
-	
+
     desc_ptr = planet_description;
 
-    expand_description ("<14> is <22>.");
+    expand_description("<14> is <22>.");
 
     return planet_description;
 }
 
 
 
-function generate_planet_data (pl, planet_seed)
-{
+function generate_planet_data(pl, planet_seed) {
 
     pl.government = (planet_seed.c / 8) & 7;
 
